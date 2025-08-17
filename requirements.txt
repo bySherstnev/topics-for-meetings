@@ -1,0 +1,31 @@
+# Telegram
+aiogram==3.4.1
+telethon==1.34.0
+
+# ML и обработка данных
+torch>=2.0.0
+transformers>=4.36.0
+sentence-transformers>=2.2.2
+scikit-learn>=1.3.0
+hdbscan>=0.8.33
+numpy>=1.24.0
+pandas>=2.0.0
+
+# База данных
+sqlalchemy>=2.0.0
+alembic>=1.12.0
+
+# Обработка текста
+nltk>=3.8.1
+pymorphy2>=0.9.1
+emoji>=2.8.0
+
+# Утилиты
+python-dotenv>=1.0.0
+pydantic>=2.5.0
+loguru>=0.7.0
+asyncio-throttle>=1.0.2
+
+# Квантизация для LLM
+bitsandbytes>=0.41.0
+accelerate>=0.25.0

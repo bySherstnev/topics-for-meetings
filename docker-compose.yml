@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    container_name: topics-bot
+    restart: unless-stopped
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./models:/app/models
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    ports:
+      - "8000:8000"  # Метрики
+    networks:
+      - bot-network
+
+  # Опционально: PostgreSQL для продакшена
+  # postgres:
+  #   image: postgres:15
+  #   container_name: topics-postgres
+  #   environment:
+  #     POSTGRES_DB: topics_bot
+  #     POSTGRES_USER: bot_user
+  #     POSTGRES_PASSWORD: bot_password
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   networks:
+  #     - bot-network
+
+networks:
+  bot-network:
+    driver: bridge
+
+# volumes:
+#   postgres_data:
