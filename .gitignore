@@ -147,6 +147,43 @@ data/
 bot_session.session
 bot_session.session-journal
 
+# Telegram session files
+*.session
+*.session-journal
+
+# Hugging Face cache
+.cache/
+huggingface/
+transformers_cache/
+
+# ML model files
+*.bin
+*.safetensors
+*.ckpt
+*.pth
+*.pt
+
+# Temporary files
+wip
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Debug files
+debug.sh
+setup_telegram.py
+main_debug.py
+Dockerfile.debug
+docker-compose.debug.yml
+
+# Environment files (keep example)
+.env
+.env.local
+.env.production
+.env.staging
+
 # Docker
 .dockerignore
 
